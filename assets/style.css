@@ -514,3 +514,50 @@ input[type="radio"], input[type="checkbox"] {
 	padding-left: 30px;
 
 }
+
+.osearch {
+  position: relative;
+  top: 0px;
+}
+
+.osearch input[type="text"] {
+  background: #fff;
+}
+
+.btn-search {
+  color: #000!important;
+  height: 35px;
+}
+
+.discover {
+  color: #f00;
+  text-shadow: #f00;
+  display: block;
+  text-align: center;
+  margin-top: -150px;
+  font-size: 35px;
+line-height: 40px;
+}
+
+.innerheader {
+  background: #ffbe26;
+color: #000 !important;
+margin-top: 0px;
+z-index: 0;
+padding: 15px 20px;
+width: 100%;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #072f4f;
+   color: white;
+   text-align: center;
+}
+
+.footer {
+  font-size: 16px;
+}
