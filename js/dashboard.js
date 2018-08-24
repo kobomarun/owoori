@@ -1,4 +1,4 @@
-var fname = localStorage.getItem('fname');
+var fname = localStorage.getItem('name');
 var lname = localStorage.getItem('lname');
 var phone = localStorage.getItem('phone');
 var ctotal = localStorage.getItem('ctotal');

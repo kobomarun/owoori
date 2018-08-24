@@ -16,9 +16,9 @@
    </head>
    <body onload="getListings()">
      <div data-role="page"  id="mtn" class="">
-        <div data-role="header" onclick="history.back()">
+        <div data-role="header" onclick="location.href = 'blisting.html'">
            <div class="logo">
-            <a href="dashboard.html">
+            <a href="listing.html">
               <img src="splash.jpg" height="40" class="img-circle img-thumbnail" width="40"/>
             </a>
             <div class="pull-right" style="color:#fff">
@@ -63,13 +63,19 @@
         <div class="row">
           <div class="footer">
             <div class="col-xs-4">
-              <p class="ui-icon-home ui-btn-icon-top"><a style="color:#fff" onclick="location.href = 'home.html'">Home</a></p>
+              <a style="color:#fff" onclick="location.href = 'home.html'">
+              <p class="ui-icon-home ui-btn-icon-top">Home</p>
+            </a>
             </div>
             <div class="col-xs-4">
-              <p class="ui-icon-grid ui-btn-icon-top"><a style="color:#fff" onclick="location.href = 'blisting.html'">Listings</a></p>
+              <a style="color:#fff" onclick="location.href = 'blisting.html'">
+              <p class="ui-icon-grid ui-btn-icon-top">Listings</p>
+            </a>
             </div>
             <div class="col-xs-4">
-              <p class="ui-icon-user ui-btn-icon-top" id="auth"><a style="color:#fff" onclick="location.href = 'index.html'"> Login </a></p>
+              <a style="color:#fff" onclick="location.href = 'index.html'">
+               <p class="ui-icon-user ui-btn-icon-top" id="auth"> Login</p>
+             </a>
             </div>
 
           </div>
