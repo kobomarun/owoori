@@ -21,7 +21,7 @@
         } else {
         $.ajax({
                 type: "get",
-                url: "http://communitylifeproject.ngo/lg/Api/pipeline/getCategory",
+                url: "http://oshodibusinessconnect.com/Api/pipeline/getCategory",
                 beforeSend : function() {$.mobile.loading('show')},
                 complete   : function() {$.mobile.loading('hide')},
                 success: function(response) {
@@ -39,30 +39,6 @@
             }
           }
 
-          function getBusinessType() {
-            var networkState =  navigator.onLine;
-            if (networkState == false){
-              navigator.notification.alert("Check your internet connection");
-            } else {
-            $.ajax({
-                    type: "get",
-                    url: "http://communitylifeproject.ngo/lg/Api/pipeline/getBusinessType",
-                    beforeSend : function() {$.mobile.loading('show')},
-                    complete   : function() {$.mobile.loading('hide')},
-                    success: function(response) {
-                      if(response!=='') {
-                        document.getElementById("businessType").innerHTML=response;
-                      } else {
-                        alert("No Business Type Found");
-                      }
-
-                    },
-                    error: function(response) {
-                      console.log(response);
-                    }
-                  });
-                }
-          }
 
           function getLgs() {
             var networkState =  navigator.onLine;
@@ -92,7 +68,7 @@
 
           </script>
    </head>
-   <body onload="getAllCategory(); getBusinessType(); getLgs()">
+   <body onload="getAllCategory(); getLgs()">
      <div data-role="page" id="mtn">
         <div data-role="header" onclick="history.back()">
            <div class="logo">
@@ -123,15 +99,12 @@
                     <div class="clear_float"></div>
                     <div class="regular margin_bottom_20">
                       <div class="margin_bottom_20">
-                         <label >Contact Name</label>
+                         <label >Business Owner's Name</label>
                          <input type="text" class="form-control" name="" id="cname" autocomplete='fname'
                             data-validation="string" data-validation-allowing="string">
                       </div>
                       <div class="clear_float"></div>
-                   <div class="margin_bottom_20">
-                      <label >Business Description</label>
-                      <textarea class="form-control" name="" id="description" autocomplete='description'></textarea>
-                   </div>
+
                        <div class="clear_float"></div>
                     <div class="margin_bottom_20">
                        <label >Business Address</label>
@@ -141,11 +114,15 @@
                      <div class="clear_float"></div>
                      <div class="clear_float"></div>
                      <div class="margin_bottom_20">
-                        <label >Location</label>
+                        <label >City</label>
                         <input type="text" class="form-control" name="" id="city" autocomplete='fname'
                            data-validation="string" data-validation-allowing="string">
                      </div>
                       <div class="clear_float"></div>
+                   <div class="margin_bottom_20">
+                      <label >Email Address</label>
+                      <input type="text" class="form-control" name="" id="email" data-validation="string">
+                   </div>
                    <div class="margin_bottom_20">
                       <label >Phone Number</label>
                       <input type="number" class="form-control" name="" id="phone" autocomplete='tel-national'
@@ -153,7 +130,7 @@
                    </div>
                    <div class="clear_float"></div>
                   <div class="margin_bottom_20">
-                     <label >Payer ID</label>
+                     <label >Password</label>
                      <input type="text" class="form-control" name="" id="pwd" autocomplete='tel-national'
                         data-validation="string">
                   </div>
@@ -175,12 +152,7 @@
                       </div>
                         <div class="clear_float"></div>
                         <div class="clear_float"></div>
-                        <div class="margin_bottom_20">
-                           <label>Select Business Type</label>
-                           <select name="select-choice-1" id="businessType">
-                           <option id="stype">Select</option>
-                           </select>
-                        </div>
+
                           <div class="clear_float"></div>
                     <div class="clear_float"></div>
                     <div  id="submit" onclick="registerBusiness()" class="button_alt">Save</div>
@@ -194,7 +166,6 @@
      <script src="js/fastclick.js" type="text/javascript"></script>
      <script src="js/vend.js" type="text/javascript"></script>
     <script src="js/business-registration.js"></script>
-     <script src="js/register.js"></script>
      <script src="js/cash.js"></script>
        <script src="js/vend-mtn.js"></script>
    </body>

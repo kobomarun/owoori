@@ -23,7 +23,7 @@ function validationcheck(){
       $.ajax({
         type: 'POST',
         crossDomain: true,
-        url: 'http://communitylifeproject.ngo/lg/Api/pipeline/login',
+        url: 'http://oshodibusinessconnect.com/Api/pipeline/login',
         data: {
         username : Username,
         pass : Password
@@ -37,12 +37,12 @@ function validationcheck(){
       //set user details in localStorage
       localStorage.setItem("phone",response['phone']);
       localStorage.setItem("id",response['id']);
-      localStorage.setItem("fname",response['fname']);
-      localStorage.setItem("lname",response['lname']);
+      localStorage.setItem("name",response['name']);
+      localStorage.setItem("email",response['email']);
       localStorage.setItem("bname",response['bname']);
       localStorage.setItem("ctotal",response['ctotal']);
       localStorage.setItem("dtotal",response['dtotal']);
-      localStorage.setItem("b_description",response['description']);
+      localStorage.setItem("isLogin",response['isLoggedIn']);
 
       if(response['type'] == 1) {
       location.href='dashboard.html';
@@ -50,7 +50,7 @@ function validationcheck(){
       location.href='customer-dash.html';
     }
     } else {
-      navigator.notification.alert("Wrong Phone Number or Password");
+      alert("Wrong Phone Number or Password");
       document.getElementById("submitButton").innerHTML="Login to your Account";
 
     }

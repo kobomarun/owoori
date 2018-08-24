@@ -5,7 +5,7 @@ function getAllBusiness() {
   } else {
   $.ajax({
           type: "get",
-          url: "http://communitylifeproject.ngo/lg/Api/pipeline/getBusinessListing",
+          url: "http://oshodibusinessconnect.com/Api/pipeline/getBusinessListing",
           beforeSend : function() {$.mobile.loading('show')},
           complete   : function() {$.mobile.loading('hide')},
           success: function(response) {
@@ -55,7 +55,7 @@ function getBusinessDetails(e) {
   } else {
   $.ajax({
           type: "post",
-          url: "http://communitylifeproject.ngo/lg/Api/pipeline/getBusinessDetails",
+          url: "http://oshodibusinessconnect.com/Api/pipeline/getBusinessDetails",
           data: {
             id: e
           },
@@ -63,8 +63,8 @@ function getBusinessDetails(e) {
           complete   : function() {$.mobile.loading('hide')},
           success: function(response) {
             if(response!=='') {
+              document.getElementById("content").style='display:none';
               document.getElementById("head").innerHTML=response;
-                document.getElementById("content").innerHTML='';
             } else {
               alert("Business details not found");
             }
