@@ -27,7 +27,7 @@ function updateDescription() {
 
   $.ajax({
           type: "post",
-          url: "http://communitylifeproject.ngo/lg/Api/pipeline/updateDescription",
+          url: "http://oshodibusinessconnect.com/Api/pipeline/updateDescription",
           data: form_data,
           beforeSend : function() {$.mobile.loading('show')},
           complete   : function() {$.mobile.loading('hide')},

@@ -7,7 +7,7 @@ if(phone.length !== 11) {
   $.ajax({
     type: 'POST',
     crossDomain: true,
-    url: 'http://communitylifeproject.ngo/lg/Api/pipeline/verifyPayment',
+    url: 'http://oshodibusinessconnect.com/Api/pipeline/verifyPayment',
     data: {
     phone : phone,
   },
@@ -66,7 +66,7 @@ function submitComplain() {
     $.ajax({
       type: 'POST',
       crossDomain: true,
-      url: 'http://communitylifeproject.ngo/lg/Api/pipeline/addComplain',
+      url: 'http://oshodibusinessconnect.com/Api/pipeline/addComplain',
       data: form_data,
     beforeSend : function() {$.mobile.loading('show')},
     complete   : function() {$.mobile.loading('hide')},
@@ -109,7 +109,7 @@ function UploadSupport() {
     $.ajax({
       type: 'POST',
       crossDomain: true,
-      url: 'http://communitylifeproject.ngo/lg/Api/pipeline/do_upload',
+      url: 'http://oshodibusinessconnect.com/Api/pipeline/do_upload',
       data: form_data,
     beforeSend : function() {$.mobile.loading('show')},
     complete   : function() {$.mobile.loading('hide')},

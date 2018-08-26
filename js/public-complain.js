@@ -21,7 +21,7 @@ function checkBusisness(){
       $.ajax({
         type: 'POST',
         crossDomain: true,
-        url: 'http://communitylifeproject.ngo/lg/Api/pipeline/viewcomplaints',
+        url: 'http://oshodibusinessconnect.com/Api/pipeline/viewcomplaints',
         data: {
         phone : phone,
       },

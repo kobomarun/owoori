@@ -81,3 +81,67 @@ function registerBusiness() {
     }
 
 }
+
+function addProducts() {
+  if (document.prod.name.value == "") {
+			alert("Please Enter Product Name");
+			document.prod.name.focus();
+
+		} else if (document.prod.description.value == "") {
+  			alert("Please Enter Product Description");
+  			document.prod.description.focus();
+      }
+
+  	 else if (document.prod.price.value == "") {
+  			alert("Please Enter Product Price");
+  			document.prod.price.focus();
+
+      } else {
+  var btn = document.getElementById("submit");
+  btn.innerHTML ="Saving.....";
+  //btn.style="display:none"
+  var name = document.getElementById("name").value;
+  var description = document.getElementById("description").value;
+  var price = document.getElementById("price").value;
+  var userfile = document.getElementById("userfile").value;
+  var phone = localStorage.getItem('phone');
+
+
+  var form_data = {
+    'name': name,
+    'userfile': userfile,
+    'price': price,
+    'phone':phone,
+    }
+  var networkState =  navigator.onLine;
+  if (networkState == false){
+    navigator.notification.alert("Check your internet connection");
+  } else {
+
+  $.ajax({
+          type: "post",
+          url: "http://oshodibusinessconnect.com/Api/site/addProduct",
+          data: form_data,
+          beforeSend : function() {$.mobile.loading('show')},
+          complete   : function() {$.mobile.loading('hide')},
+          success: function(response) {
+
+            if(response == "successful") {
+              console.log(response);
+              alert("You have Successfully added" + name + " Product to Oshodi Business Connect");
+              location.href="home.html";
+            } else if(response == 'pic-error') {
+              console.log(response);
+              alert("Something went wrong. Please check the Image you uploaded");
+              btn.innerHTML = "Add Business ";
+            }  else if(response == 'error'){
+              console.log(response);
+              alert("Something went wrong. Try again later");
+              btn.innerHTML = "Add Business";
+            }
+          }
+        });
+      }
+    }
+
+}

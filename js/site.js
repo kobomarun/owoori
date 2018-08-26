@@ -42,8 +42,8 @@ function register() {
 }
 
 function addProducts() {
-  alert('add products');
-  return false;
+  location.href='add-products.html'
+  
 }
 
 function getListings() {

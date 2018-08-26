@@ -19,7 +19,7 @@ function checkBusisness(){
       $.ajax({
         type: 'POST',
         crossDomain: true,
-        url: 'http://communitylifeproject.ngo/lg/Api/pipeline/checkBusisnessExist',
+        url: 'http://oshodibusinessconnect.com/Api/pipeline/checkBusisnessExist',
         data: {
         phone : phone,
       },
@@ -88,7 +88,7 @@ function Payment() {
     $.ajax({
       type: 'POST',
       crossDomain: true,
-      url: 'http://communitylifeproject.ngo/lg/Api/pipeline/addPayment',
+      url: 'http://oshodibusinessconnect.com/Api/pipeline/addPayment',
       data: form_data,
     beforeSend : function() {$.mobile.loading('show')},
     complete   : function() {$.mobile.loading('hide')},
@@ -121,7 +121,7 @@ function getAllTariff() {
   } else {
   $.ajax({
           type: "post",
-          url: "http://communitylifeproject.ngo/lg/Api/pipeline/getAllTariff",
+          url: "http://oshodibusinessconnect.com/Api/pipeline/getAllTariff",
           beforeSend : function() {$.mobile.loading('show')},
           complete   : function() {$.mobile.loading('hide')},
           success: function(response) {

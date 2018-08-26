@@ -30,7 +30,7 @@ function getNews() {
   } else {
   $.ajax({
           type: "get",
-          url: "http://communitylifeproject.ngo/lg/Api/pipeline/getNews",
+          url: "http://oshodibusinessconnect.com/Api/pipeline/getNews",
           beforeSend : function() {$.mobile.loading('show')},
           complete   : function() {$.mobile.loading('hide')},
           success: function(response) {
