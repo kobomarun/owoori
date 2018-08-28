@@ -65,7 +65,7 @@ function registerBusiness() {
 
               lg="";
               city="";
-              location.href="home.html";
+              location.href="dashboard.html";
             } else if(response == 'error2') {
               console.log(response);
               alert("Error while adding to database Please try again");

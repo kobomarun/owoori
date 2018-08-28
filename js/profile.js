@@ -1,7 +1,7 @@
 
 
-document.getElementById('fname').innerHTML = localStorage.getItem('fname');
-$('#lname').html(localStorage.getItem('lname'));
+document.getElementById('fname').innerHTML = localStorage.getItem('name');
+$('#lname').html(localStorage.getItem('name'));
 $('#id').html(localStorage.getItem('id'));
 $('#phone').html(localStorage.getItem('phone'));
 $('#bname').html(localStorage.getItem('bname'));

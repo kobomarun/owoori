@@ -7,7 +7,7 @@
     <author email="support@clp.com" href="http://communitylifeproject.com">
         SOFTVISION PROFESSIONALS
     </author>
-    <content src="home.html" />
+    <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="23" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
