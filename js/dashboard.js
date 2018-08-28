@@ -4,7 +4,7 @@ var phone = localStorage.getItem('phone');
 var ctotal = localStorage.getItem('ctotal');
 var dtotal = localStorage.getItem('dtotal');
 
-var fullName = fname +" " + lname
+var fullName = fname;
  $('#name').html(fullName);
  $('#phone').html(phone);
  $('#ctotal').html("N"+ctotal);
