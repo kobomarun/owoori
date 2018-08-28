@@ -59,13 +59,17 @@ function registerBusiness() {
 
             if(response == "true") {
               console.log(response);
-              alert("You have Successfully added" + bname + " to Oshodi Business Connect");
+              alert("You have Successfully added " + bname + " to Oshodi Business Connect");
               document.getElementById("bname").value ='';
               cname="";
 
               lg="";
               city="";
-              location.href="dashboard.html";
+              if(localStorage.getItem("isLogin") == "true") {
+                location.href="dashboard.html";
+              } else {
+                location.href="index.html";
+              }
             } else if(response == 'error2') {
               console.log(response);
               alert("Error while adding to database Please try again");

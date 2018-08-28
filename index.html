@@ -35,7 +35,22 @@
             <input  class="form-control" type="password" name="passw" id="password" placeholder="Password" value="" data-role="none" >
           </div>
           <div class="blue-submit" onTap="validationcheck()" name ="submit" id="submitButton"> Login to your Account</div>
+					<div style="text-align:center; color:#fff; margin-top: 15px;">
+						<i class="entypo entypo-user"></i>
+						<a onclick="location.href='business-registration.html'" style="color:#fff; font-size: 15px;">Register Here</a> <img src="or.png" width="70px" />
+						 <i class="entypo entypo-lock"></i><a onclick="iforgot()" style="color:#fff; font-size: 15px;">Forgot Password</a>
+					</div>
+					<div style="margin-top:60px;"></div>
+					<div id="forgot" style="display:none">
+						<h3 style="color:#fff">Forgot Password?</h3>
+						<div class="ctrl">
+		          <i class="entypo entypo-user"> </i>
+							<input  class="form-control" type="email" name="user" id="email" placeholder="Enter Your Email Address" value="" data-mini="true" data-role="none" >
+		      	</div>
+						<div class="blue-submit" onTap="forgotPassword()" name ="fp" id="fp"> Send Password</div>
+					</div>
 					<div style="margin-top:40px;"></div>
+
 					<div class="alert alert-info alert-dismissible" role="alert">
 					  <p>
 							This App is made possible by the generous support of the American people through the United States Agency for International Development (USAID).
@@ -55,6 +70,9 @@
   <script src="js/cash.js"></script>
 	<script>
 	localStorage.setItem('isLogin', 'false');
+	function iforgot() {
+		document.getElementById('forgot').style="display:block";
+	}
 	</script>
 </body>
 </html>

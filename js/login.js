@@ -67,3 +67,52 @@ function validationcheck(){
     //});
   }}
 }
+
+function forgotPassword() {
+  document.getElementById("fp").innerHTML="Checking .....";
+  var email = document.getElementById('email').value;
+  var networkState =  navigator.onLine;
+  if(email == '') {
+    alert('Please enter your email');
+  } else if(networkState == false) {
+    navigator.notification.alert("Check your internet connection");
+  } else  {
+    $.ajax({
+      type: 'POST',
+      crossDomain: true,
+      url: 'http://oshodibusinessconnect.com/Api/pipeline/forgotpassword',
+      data: {
+      email : email
+    },
+    beforeSend : function() {$.mobile.loading('show')},
+    complete   : function() {$.mobile.loading('hide')},
+    dataType: 'json',
+    success: function(response){
+    console.log(response);
+    if(response.responseText === 'success') {
+    //set user details in localStorage
+    alert("Temporary Password has been sent to your email. Please check your email.");
+    location.href="index.html"
+
+  } else {
+    alert("Error!!! We can't find your email in our database");
+    document.getElementById("fp").innerHTML="Send Password";
+
+  }
+
+    },
+    error: function(response) {
+      if(response.responseText === 'success') {
+      //set user details in localStorage
+      alert("Temporary Password has been sent to your email. Please check your email.");
+      location.href="index.html"
+
+    } else {
+      alert("Error!!! We can't find your email in our database");
+      document.getElementById("fp").innerHTML="Send Password";
+
+    }
+    }
+  })
+  }
+}
