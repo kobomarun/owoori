@@ -1,11 +1,11 @@
 var url =  "location.href='dashboard.html'";
-var curl =  "location.href='customer-dash.html'";
+var curl =  "location.href='mypage.html'";
 
 if(localStorage.getItem("isLogin") == "true" && localStorage.getItem("type")== 1) {
-  var div = "<p class='ui-icon-user ui-btn-icon-top' onclick="+url+">My Account</p>";
+  var div = "<p class='ui-icon-user ui-btn-icon-top' onclick="+url+">My Page</p>";
   document.getElementById('auth').innerHTML = div;
-} else if(localStorage.getItem("isLogin") == "true" && localStorage.getItem("type")== 0) { 
-  var div = "<p class='ui-icon-user ui-btn-icon-top' onclick="+curl+">My Account</p>";
+} else if(localStorage.getItem("isLogin") == "true" && localStorage.getItem("type")== 0) {
+  var div = "<p class='ui-icon-user ui-btn-icon-top' onclick="+curl+">My Page</p>";
   document.getElementById('auth').innerHTML = div;
 }
 
