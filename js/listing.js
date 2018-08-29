@@ -80,7 +80,6 @@ function getBusinessDetails(e) {
 
 function getMyBusinessDetails() {
   var phone = localStorage.getItem('phone');
-  alert(phone)
   var networkState =  navigator.onLine;
   if (networkState == false){
     navigator.notification.alert("Check your internet connection");
