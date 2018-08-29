@@ -14,5 +14,5 @@ var fullName = fname;
 
     confirmed = function(buttonIndex) { if(buttonIndex == 1) { console.log("navigator.app.exitApp"); navigator.app.exitApp(); } }
 
-    navigator.notification.confirm('Exit Owo-Ori App?', confirmed, 'Exit?');
+    navigator.notification.confirm('Exit App?', confirmed, 'Exit?');
   }
