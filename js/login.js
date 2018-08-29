@@ -43,6 +43,7 @@ function validationcheck(){
       localStorage.setItem("ctotal",response['ctotal']);
       localStorage.setItem("dtotal",response['dtotal']);
       localStorage.setItem("isLogin",response['isLoggedIn']);
+      localStorage.setItem("type",response['type']);
 
       if(response['type'] == 1) {
       location.href='dashboard.html';

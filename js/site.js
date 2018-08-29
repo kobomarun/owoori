@@ -1,5 +1,12 @@
-if(localStorage.getItem("isLogin") == "true") {
-  document.getElementById('auth').innerHTML = "Signout";
+var url =  "location.href='dashboard.html'";
+var curl =  "location.href='customer-dash.html'";
+
+if(localStorage.getItem("isLogin") == "true" && localStorage.getItem("type")== 1) {
+  var div = "<p class='ui-icon-user ui-btn-icon-top' onclick="+url+">My Account</p>";
+  document.getElementById('auth').innerHTML = div;
+} else if(localStorage.getItem("isLogin") == "true" && localStorage.getItem("type")== 0) { 
+  var div = "<p class='ui-icon-user ui-btn-icon-top' onclick="+curl+">My Account</p>";
+  document.getElementById('auth').innerHTML = div;
 }
 
 function checkIfLogin() {
@@ -43,7 +50,7 @@ function register() {
 
 function addProducts() {
   location.href='add-products.html'
-  
+
 }
 
 function getListings() {

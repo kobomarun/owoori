@@ -16,9 +16,9 @@
    </head>
    <body onload="getListings()">
      <div data-role="page"  id="mtn" class="">
-        <div data-role="header" onclick="location.href = 'blisting.html'">
+        <div data-role="header">
            <div class="logo">
-            <a href="listing.html">
+            <a onclick="location.href = 'blisting.html'">
               <img src="splash.jpg" height="40" class="img-circle img-thumbnail" width="40"/>
             </a>
             <div class="pull-right" style="color:#fff">
@@ -72,9 +72,9 @@
               <p class="ui-icon-grid ui-btn-icon-top">Listings</p>
             </a>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4" id="auth">
               <a style="color:#fff" onclick="location.href = 'index.html'">
-               <p class="ui-icon-user ui-btn-icon-top" id="auth"> Login</p>
+               <p class="ui-icon-user ui-btn-icon-top" > Login</p>
              </a>
             </div>
 
