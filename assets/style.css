@@ -62,7 +62,8 @@ body
 
 .mainbg
 {
-	background:#062F4F url(images/bg-image.png) no-repeat;
+	/*background:#062F4F url(images/bg-image.png) no-repeat;*/
+  background: #042141;
 	background-size: 100%;
 	margin:0; padding:0;
 }
@@ -79,6 +80,13 @@ body
 	width: 90px;
 	margin-top:50px;
 	margin-bottom:20px;
+}
+
+.centerfrontlogo
+{
+	margin:0 auto;
+	margin-top:30px;
+	margin-bottom:0px;
 }
 
 form.blue
