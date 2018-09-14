@@ -142,6 +142,7 @@ function UploadSupport() {
       error: function(response) {
         console.log(response);
         if(response.responseText == 'success') {
+          document.getElementById('status').style="display:block";
           document.getElementById('status').innerHTML="Your payment evidence has been submitted. We will activate your payment when verified";
           setTimeout(function() {
             location.href='customer-dash.html';
