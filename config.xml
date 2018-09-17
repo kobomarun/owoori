@@ -32,12 +32,12 @@
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <platform name="android">
-      <icon src="icon.jpg" gap:platform="android" gap:density="ldpi" />
-      <icon src="icon.jpg" gap:platform="android" gap:density="mdpi" />
-      <icon src="icon.jpg" gap:platform="android" gap:density="hdpi" />
-      <icon src="icon.jpg" gap:platform="android" gap:density="xhdpi" />
-      <icon src="icon.jpg" gap:platform="android" gap:density="xxhdpi" />
-      <icon src="icon.jpg" />
+      <icon src="splash.jpg" gap:platform="android" gap:density="ldpi" />
+      <icon src="splash.jpg" gap:platform="android" gap:density="mdpi" />
+      <icon src="splash.jpg" gap:platform="android" gap:density="hdpi" />
+      <icon src="splash.jpg" gap:platform="android" gap:density="xhdpi" />
+      <icon src="splash.jpg" gap:platform="android" gap:density="xxhdpi" />
+      <icon src="splash.jpg" />
       <gap:splash src="splash.jpg" gap:platform="android" gap:density="ldpi" />
       <gap:splash src="splash.jpg" gap:platform="android" gap:density="mdpi" />
       <gap:splash src="splash.jpg" gap:platform="android" gap:density="hdpi" />
