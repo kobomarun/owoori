@@ -32,8 +32,10 @@ function checkBusisness(){
       //set user details in localStorage
       localStorage.setItem("bphone",response['phone']);
       localStorage.setItem("bname",response['bname']);
+      localStorage.setItem("baddress",response['address']);
+      localStorage.setItem("ccity",response['city']);
 
-      location.href='tariff-payment2.html';
+      location.href='generate2.html';
     } else {
       alert("This phone number is not registered with any business");
     }
@@ -114,6 +116,7 @@ function Payment() {
 	}
 }
 
+
 function getAllTariff() {
   var networkState =  navigator.onLine;
   if (networkState == false){
@@ -138,3 +141,28 @@ function getAllTariff() {
         });
       }
 }
+
+// function getAllTariff() {
+//   var networkState =  navigator.onLine;
+//   if (networkState == false){
+//     navigator.notification.alert("Check your internet connection");
+//   } else {
+//   $.ajax({
+//           type: "post",
+//           url: "http://oshodibusinessconnect.com/Api/pipeline/getAllTariff",
+//           beforeSend : function() {$.mobile.loading('show')},
+//           complete   : function() {$.mobile.loading('hide')},
+//           success: function(response) {
+//             if(response!=='') {
+//               document.getElementById("tariff").innerHTML=response;
+//             } else {
+//               alert("No Tariff Found");
+//             }
+//
+//           },
+//           error: function(response) {
+//             console.log(response);
+//           }
+//         });
+//       }
+// }

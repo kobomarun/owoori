@@ -24,7 +24,7 @@ function registerBusiness() {
   var bname = document.getElementById("bname").value;
   var address = document.getElementById("address").value;
   var phone = document.getElementById("phone").value;
-  var lg = document.getElementById("lg").value;
+  //var lg = document.getElementById("lg").value;
   var cat = document.getElementById("businessCategory").value;
   var email = document.getElementById("email").value;
   var city = document.getElementById("city").value;
@@ -37,7 +37,7 @@ function registerBusiness() {
     'name': bname,
     'address': address,
     'city': city,
-    'lg':lg,
+    'lg':'Oshodi',
     'email': email,
     'category': cat,
     'phone': phone,
