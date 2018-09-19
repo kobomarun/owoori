@@ -35,7 +35,7 @@ function checkBusisness(){
       localStorage.setItem("baddress",response['address']);
       localStorage.setItem("ccity",response['city']);
 
-      location.href='generate2.html';
+      location.href='tariff-payment2.html';
     } else {
       alert("This phone number is not registered with any business");
     }
@@ -63,27 +63,50 @@ newV = e.options[e.selectedIndex].value
   localStorage.setItem('tariffAmount', tariffAmount);
 console.log(splitValue[1]);
 }
+function onChange2(e) {
+	var value = document.getElementById("tariff2").value
+
+newV = e.options[e.selectedIndex].value
+  var splitValue = newV.split(":");
+  var tariffAmount = document.getElementById("amount2").value=splitValue[0];
+  var tariffName = document.getElementById("tariffName2").value=splitValue[1];
+  localStorage.setItem('tariffName2', tariffName);
+  localStorage.setItem('tariffAmount2', tariffAmount);
+console.log(splitValue[1]);
+}
+function onChange3(e) {
+	var value = document.getElementById("tariff3").value
+
+newV = e.options[e.selectedIndex].value
+  var splitValue = newV.split(":");
+  var tariffAmount = document.getElementById("amount3").value=splitValue[0];
+  var tariffName = document.getElementById("tariffName3").value=splitValue[1];
+  localStorage.setItem('tariffName', tariffName);
+  localStorage.setItem('tariffAmount', tariffAmount);
+console.log(splitValue[1]);
+}
 
 function Payment() {
-	var confirmPayment = confirm("Are you sure about the payment");
+	var confirmPayment = confirm("Are you sure?");
 	if(confirmPayment) {
-    tname = localStorage.getItem('tariffName');
-    tamount = document.getElementById('amount').value;
+    tname = localStorage.getItem('tariffName') + ","+localStorage.getItem('tariffName')+","+localStorage.getItem('tariffName');
+    //tamount = parseInt(document.getElementById('amount').value + document.getElementById('amount2').value+document.getElementById('amount3').value);
     bname = localStorage.getItem('bname');
+    tamount = 2450;
     bphone = localStorage.getItem('bphone');
     officerid = localStorage.getItem('id');
     lg = localStorage.getItem('lg');
-    pmethod = document.getElementById('pmethod').value;
-    ptype = document.getElementById('ptype').value;
+    //pmethod = document.getElementById('pmethod').value;
+    //ptype = document.getElementById('ptype').value;
 
     form_data = {
       'tname': tname,
       'tamount': tamount,
       'bname': bname,
       'bphone': bphone,
-      'p_method':pmethod,
+      //'p_method':pmethod,
       'officer_id':officerid,
-      'ptype':ptype,
+      //'ptype':'ptype',
       'lg':lg
     }
 
@@ -130,6 +153,9 @@ function getAllTariff() {
           success: function(response) {
             if(response!=='') {
               document.getElementById("tariff").innerHTML=response;
+              document.getElementById("tariff2").innerHTML=response;
+              document.getElementById("tariff3").innerHTML=response;
+
             } else {
               alert("No Tariff Found");
             }
