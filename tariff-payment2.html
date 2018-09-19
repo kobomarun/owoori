@@ -83,7 +83,7 @@
 
                     <div class="clear_float"></div>
                     <div class="clear_float"></div><br /><br />
-                    <div id="signup_btn_1" ontap="Payment()" class="button_alt">Generate Bill</div>
+                    <div id="signup_btn_1" onTap="gene()" class="button_alt">Continue</div>
                  </div>
            </form>
            </div>
@@ -96,7 +96,9 @@
      <script>
      document.getElementById('bname').innerHTML=localStorage.getItem('bname');
      document.getElementById('address').innerHTML=localStorage.getItem('baddress')+" "+ localStorage.getItem('ccity');
-
+function gene() {
+  location.href='generatebill.html'
+}
      </script>
    </body>
 </html>

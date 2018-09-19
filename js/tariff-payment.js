@@ -81,15 +81,15 @@ newV = e.options[e.selectedIndex].value
   var splitValue = newV.split(":");
   var tariffAmount = document.getElementById("amount3").value=splitValue[0];
   var tariffName = document.getElementById("tariffName3").value=splitValue[1];
-  localStorage.setItem('tariffName', tariffName);
-  localStorage.setItem('tariffAmount', tariffAmount);
+  localStorage.setItem('tariffName3', tariffName);
+  localStorage.setItem('tariffAmount3', tariffAmount);
 console.log(splitValue[1]);
 }
 
 function Payment() {
 	var confirmPayment = confirm("Are you sure?");
 	if(confirmPayment) {
-    tname = localStorage.getItem('tariffName') + ","+localStorage.getItem('tariffName')+","+localStorage.getItem('tariffName');
+    tname = localStorage.getItem('tariffName') + ","+localStorage.getItem('tariffName2')+","+localStorage.getItem('tariffName3');
     //tamount = parseInt(document.getElementById('amount').value + document.getElementById('amount2').value+document.getElementById('amount3').value);
     bname = localStorage.getItem('bname');
     tamount = 2450;
