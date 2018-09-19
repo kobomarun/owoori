@@ -174,3 +174,28 @@ for (i = 0; i < acc.length; i++) {
         }
     });
 }
+
+function getReceipt() {
+  var networkState =  navigator.onLine;
+  if (networkState == false){
+    navigator.notification.alert("Check your internet connection");
+  } else {
+  $.ajax({
+          type: "get",
+          url: "http://oshodibusinessconnect.com/Api/pipeline/getReceipt/"+localStorage.getItem('phone'),
+          beforeSend : function() {$.mobile.loading('show')},
+          complete   : function() {$.mobile.loading('hide')},
+          success: function(response) {
+            if(response!=='') {
+              document.getElementById("content").innerHTML=response;
+            } else {
+              alert("No Receipt Found");
+            }
+
+          },
+          error: function(response) {
+            console.log(response);
+          }
+        });
+      }
+}

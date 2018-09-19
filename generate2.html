@@ -58,10 +58,76 @@
                  <div class="regular margin_bottom_20">
                    <table class="table">
 
-                     <tbody id="tariff">
+                     <tbody id="">
                        <tr>
                          <td>
-                           <label><input type='checkbox' id='me'>Label 1</label>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates' value='Shops Rates - Large	A : 200'>Shops Rates - Large	A	</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates' value='Shops Rates - Large	A+ : 400'>Shops Rates - Large	A+	</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Shops Rates - Large	B:500'>Shops Rates - Large	B	</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Kiosk Rates - Large	A: 1200'>Kiosk Rates - Large	A	</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Kiosk Rates - Large	B:1000'>Kiosk Rates - Large	B	</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Kiosk Rates - Large	B:500'>Kiosk Rates - Large	B	</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Kiosk Rates - Large	C:600'>Kiosk Rates - Large	C	</label>
+                         </td>
+                       </tr>
+
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Open Market Levy A	:500'>Open Market Levy A	</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Open Market Levy B	:200'>Open Market Levy B	</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Liquor - Big Hotels A+	200'>Liquor - Big Hotels A+		</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Liquor - Big Hotels B:300'>Liquor - Big Hotels B		</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Shops Rates - Large C:230'>Shops Rates - Large C			</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Shops Rates - Medium A+ :600'>Shops Rates - Medium A+	</label>
+                         </td>
+                       </tr>
+                       <tr>
+                         <td>
+                           <label><input type='checkbox' onclick="generateBill()" id='rates[]' value='Shops Rates - Medium B	:450'>Shops Rates - Medium B	</label>
                          </td>
                        </tr>
 
@@ -69,9 +135,9 @@
 
                    </table>
                  </div>
-                 <div class="regular margin_bottom_20">
-                   <button class="btn btn-primary">Generate Bill</button>
-                 </div>
+                 <div class="container">
+                   <div id="signup_btn_1" onclick="location.href = 'receipt.html'" class="button_alt">Generate Bill </div>
+                </div>
            </form>
            </div>
         </div>
@@ -83,6 +149,13 @@
      <script>
      document.getElementById('bname').innerHTML=localStorage.getItem('bname');
      document.getElementById('address').innerHTML=localStorage.getItem('baddress')+" "+ localStorage.getItem('ccity');
+  function generateBill() {
+    var yourArray = []
+    $("input:checkbox['name=rates:checked'").each(function(){
+      yourArray.push($(this).val());
+      console.log(yourArray);
+  });
+  }
 
      </script>
    </body>
