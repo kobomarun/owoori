@@ -68,7 +68,7 @@
 
           </script>
    </head>
-   <body onload="getAllCategory(); getLgs()">
+   <body onload="getAllCategory();">
      <div data-role="page" id="mtn">
         <div data-role="header" onclick="history.back()">
            <div class="logo">
@@ -145,7 +145,7 @@
                       <div class="margin_bottom_20">
                         <div class="clear_float"></div>
                          <label>Select Business Category</label>
-                          <select name="select-choice-1" id="businessCategory">
+                          <select name="select-choice-1" id="businessCategory" required>
                            <option id="content">Select</option>
 
                          </select>

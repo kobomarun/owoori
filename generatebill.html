@@ -31,7 +31,7 @@
                  <div class="dash-icon">
                     <i  class="entypo-world"> </i>
                  </div>
-                 <div class="pad-text">Invoice</div>
+                 <div class="pad-text" id="inv">Invoice</div>
               </div>
            </div>
           <table class="table">
@@ -75,9 +75,20 @@
        document.getElementById('amount2').innerHTML=localStorage.getItem('tariffAmount2');
        document.getElementById('tariff3').innerHTML=localStorage.getItem('tariffName3');
        document.getElementById('amount3').innerHTML=localStorage.getItem('tariffAmount3');
-var total =  Number(localStorage.getItem('tariffAmount')) + Number(localStorage.getItem('tariffAmount2'));
-console.log(Number(total));
-document.getElementById('total').innerHTML="<b>Total:</b> N"+Number(total);
+      var total =  Number(localStorage.getItem('tariffAmount')) + Number(localStorage.getItem('tariffAmount2'))+ Number(localStorage.getItem('tariffAmount3'));
+      localStorage.setItem('genTotal',Number(total));
+      document.getElementById('total').innerHTML="<b>Total:</b> N"+Number(total);
+      function guid() {
+        return s4() + s4() ;
+      }
+
+      function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      }
+      localStorage.setItem('uuid',guid());
+      document.getElementById('inv').innerHTML='Invoice #'+localStorage.getItem('uuid');
 
      </script>
    </body>

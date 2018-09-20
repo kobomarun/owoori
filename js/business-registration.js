@@ -3,7 +3,11 @@ function registerBusiness() {
 			alert("Please Enter Business Name");
 			document.register.bname.focus();
 
-		} else if (document.register.cname.value == "") {
+		}   else if (document.getElementById('businessCategory').options.length == 0) {
+          alert("Please Business Password");
+          document.register.pwd.focus();
+
+        } else if (document.register.cname.value == "") {
   			alert("Please Contact Persons name");
   			document.register.cname.focus();
       }
@@ -17,7 +21,13 @@ function registerBusiness() {
         alert("Please Business Password");
         document.register.pwd.focus();
 
-      } else {
+      }
+
+      else if (document.register.businessCategory.value == "") {
+          alert("Please Business Password");
+          document.register.pwd.focus();
+
+        } else {
   var btn = document.getElementById("submit");
   btn.innerHTML ="Saving.....";
   //btn.style="display:none"

@@ -41,6 +41,7 @@ function validationcheck(){
       localStorage.setItem("email",response['email']);
       localStorage.setItem("bname",response['bname']);
       localStorage.setItem("ctotal",response['ctotal']);
+      localStorage.setItem("cowe",response['cowe']);
       localStorage.setItem("dtotal",response['dtotal']);
       localStorage.setItem("isLogin",response['isLoggedIn']);
       localStorage.setItem("type",response['type']);

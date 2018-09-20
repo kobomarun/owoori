@@ -90,9 +90,9 @@ function Payment() {
 	var confirmPayment = confirm("Are you sure?");
 	if(confirmPayment) {
     tname = localStorage.getItem('tariffName') + ","+localStorage.getItem('tariffName2')+","+localStorage.getItem('tariffName3');
-    //tamount = parseInt(document.getElementById('amount').value + document.getElementById('amount2').value+document.getElementById('amount3').value);
+    tprice = localStorage.getItem('tariffAmount') + ","+localStorage.getItem('tariffAmount2')+","+localStorage.getItem('tariffAmount3');
     bname = localStorage.getItem('bname');
-    tamount = 2450;
+    tamount = localStorage.getItem('genTotal');
     bphone = localStorage.getItem('bphone');
     officerid = localStorage.getItem('id');
     lg = localStorage.getItem('lg');
@@ -102,9 +102,10 @@ function Payment() {
     form_data = {
       'tname': tname,
       'tamount': tamount,
+      'tprice': tprice,
       'bname': bname,
       'bphone': bphone,
-      //'p_method':pmethod,
+      'num':localStorage.getItem('uuid'),
       'officer_id':officerid,
       //'ptype':'ptype',
       'lg':lg

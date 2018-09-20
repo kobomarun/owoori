@@ -48,7 +48,7 @@ function submitComplain() {
   var title = document.getElementById("title").value;
   var msg = document.getElementById("message").value;
   var phone = localStorage.getItem('phone');
-  var location = document.getElementById("location").value;
+  //var location = document.getElementById("location").value;
   var random = Math.floor((Math.random() * 1000000) +1);
   if(title  == '') {
     alert("We can not accept empty complain");
@@ -60,9 +60,8 @@ function submitComplain() {
       'title': title,
       'msg': msg,
       'id': id,
-      'phone': phone,
-      'location': location
-    }
+      'phone': phone
+     }
     $.ajax({
       type: 'POST',
       crossDomain: true,
@@ -78,7 +77,7 @@ function submitComplain() {
       setInterval(function() {
         document.getElementById('status').innerHTML="Your complain has been submitted. Your complain ID is " + random;
        }, 2000);
-       location.href='sucess.html';
+       location.href='customer-success.html';
 
     } else {
       alert("Error submitting your complain");
