@@ -34,7 +34,7 @@ function registerBusiness() {
   var bname = document.getElementById("bname").value;
   var address = document.getElementById("address").value;
   var phone = document.getElementById("phone").value;
-  //var lg = document.getElementById("lg").value;
+  var description = document.getElementById("description").value;
   var cat = document.getElementById("businessCategory").value;
   var email = document.getElementById("email").value;
   var city = document.getElementById("city").value;
@@ -52,7 +52,8 @@ function registerBusiness() {
     'category': cat,
     'phone': phone,
     'cname':cname,
-    'pwd':pwd
+    'pwd':pwd,
+    'description':description
     }
   var networkState =  navigator.onLine;
   if (networkState == false){
@@ -86,8 +87,9 @@ function registerBusiness() {
               btn.innerHTML = "Register ";
             }  else if(response == 'error'){
               console.log(response);
-              alert("Phone Number Already Exist");
+              alert("Phone Number or Email Taken. Try again");
               btn.innerHTML = "Register ";
+              location.href='business-registration.html';
             }
           }
         });

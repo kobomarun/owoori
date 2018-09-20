@@ -40,30 +40,7 @@
           }
 
 
-          function getLgs() {
-            var networkState =  navigator.onLine;
-            if (networkState == false){
-              navigator.notification.alert("Check your internet connection");
-            } else {
-            $.ajax({
-                    type: "get",
-                    url: "http://oshodibusinessconnect.com/Api//pipeline/getLgs",
-                    beforeSend : function() {$.mobile.loading('show')},
-                    complete   : function() {$.mobile.loading('hide')},
-                    success: function(response) {
-                      if(response!=='') {
-                        //document.getElementById("lg").innerHTML=response;
-                      } else {
-                        //alert("No Lg found");
-                      }
 
-                    },
-                    error: function(response) {
-                      console.log(response);
-                    }
-                  });
-                }
-          }
 
 
           </script>
@@ -104,7 +81,13 @@
                             data-validation="string" data-validation-allowing="string">
                       </div>
                       <div class="clear_float"></div>
-
+                      <div class="margin_bottom_20">
+                         <label >Business Description</label>
+                         <textarea id="description" required></textarea>
+                         
+                      </div>
+                       <div class="clear_float"></div>
+                       <div class="clear_float"></div>
                        <div class="clear_float"></div>
                     <div class="margin_bottom_20">
                        <label >Business Address</label>
