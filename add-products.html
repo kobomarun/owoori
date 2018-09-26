@@ -34,26 +34,28 @@
                  <div class="pad-text">ADD PRODUCT</div>
               </div>
            </div>
-           <form name="prod" method="post" enctype="multipart/form-data">
+           <form name="prod" method="post" enctype="multipart/form-data" id="prod">
               <div class="pad">
                  <div class="regular margin_bottom_20">
                    <div class="margin_bottom_20">
                       <label >Product Name</label>
-                      <input type="text" class="form-control" name="" id="name" autocomplete='name'
+                      <input type="text" class="form-control" name="name" id="name" autocomplete='name'
                          data-validation="string" data-validation-allowing="string">
+                         <input type="hidden" class="form-control" name="phone" id="phone" autocomplete='name'
+                            data-validation="string" data-validation-allowing="string">
                    </div>
                     <div class="clear_float"></div>
                     <div class="regular margin_bottom_20">
                       <div class="margin_bottom_20">
                          <label >Product Price</label>
-                         <input type="number" class="form-control" name="" id="price" autocomplete='price'
+                         <input type="number" class="form-control" name="price" id="price" autocomplete='price'
                             data-validation="number" data-validation-allowing="number">
                       </div>
                        <div class="clear_float"></div>
                         <div class="clear_float"></div>
                         <div class="margin_bottom_20">
                            <label >Product Description</label>
-                           <textarea class="form-control" id="description"></textarea>
+                           <textarea class="form-control" id="description" name="description"></textarea>
                         </div>
                         <div class="clear_float"></div>
                          <div class="clear_float"></div>
@@ -76,5 +78,6 @@
      </div>
      <!-- /page END OF MTN VENDING -->
     <script src="js/business-registration.js"></script>
+
      </body>
 </html>

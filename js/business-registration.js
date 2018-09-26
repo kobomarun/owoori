@@ -63,7 +63,7 @@ function registerBusiness() {
   $.ajax({
           type: "post",
           url: "http://oshodibusinessconnect.com/Api/pipeline/addBusiness",
-          data: form_data,
+          data: new FormData(this),
           beforeSend : function() {$.mobile.loading('show')},
           complete   : function() {$.mobile.loading('hide')},
           success: function(response) {
@@ -115,19 +115,22 @@ function addProducts() {
       } else {
   var btn = document.getElementById("submit");
   btn.innerHTML ="Saving.....";
+  var myForm = document.getElementById('prod');
+formData = new FormData(myForm);
   //btn.style="display:none"
   var name = document.getElementById("name").value;
   var description = document.getElementById("description").value;
   var price = document.getElementById("price").value;
-  var userfile = document.getElementById("userfile").value;
+  var file_name = document.getElementById("userfile").value;
   var phone = localStorage.getItem('phone');
 
 
   var form_data = {
     'name': name,
-    'userfile': userfile,
+    'file_name': file_name  ,
     'price': price,
     'phone':phone,
+    'description':description
     }
   var networkState =  navigator.onLine;
   if (networkState == false){
@@ -135,9 +138,13 @@ function addProducts() {
   } else {
 
   $.ajax({
-          type: "post",
+          type:"post",
           url: "http://oshodibusinessconnect.com/Api/site/addProduct",
-          data: form_data,
+          data: formData,
+          dataType: "html",
+        contentType: false,
+        cache: false,
+        processData: false,
           beforeSend : function() {$.mobile.loading('show')},
           complete   : function() {$.mobile.loading('hide')},
           success: function(response) {
@@ -161,3 +168,5 @@ function addProducts() {
     }
 
 }
+
+document.getElementById('phone').value = localStorage.getItem('phone');
