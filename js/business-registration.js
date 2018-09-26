@@ -162,9 +162,6 @@ formData = new FormData(myForm);
               alert("Something went wrong. Try again later");
               btn.innerHTML = "Add Business";
             }
-          }, error: function() {
-            alert("Something went wrong. Try again later");
-            btn.innerHTML = "Add Business";
           }
         });
       }
