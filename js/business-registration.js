@@ -63,7 +63,7 @@ function registerBusiness() {
   $.ajax({
           type: "post",
           url: "http://oshodibusinessconnect.com/Api/pipeline/addBusiness",
-          data: new FormData(this),
+          data: form_data,
           beforeSend : function() {$.mobile.loading('show')},
           complete   : function() {$.mobile.loading('hide')},
           success: function(response) {
