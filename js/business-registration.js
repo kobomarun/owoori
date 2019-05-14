@@ -151,7 +151,7 @@ formData = new FormData(myForm);
 
             if(response == "successful") {
               console.log(response);
-              alert("You have Successfully added" + name + " Product to Oshodi Business Connect");
+              alert("You have Successfully added " + name + " Product to Oshodi Business Connect");
               location.href="home.html";
             } else if(response == 'pic-error') {
               console.log(response);

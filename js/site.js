@@ -28,7 +28,7 @@ function getProducts() {
       beforeSend : function() {$.mobile.loading('show')},
       complete   : function() {$.mobile.loading('hide')},
       success: function(response) {
-        console.log(response);
+        console.log("response", response);
         if(response!=='') {
           document.getElementById("content").innerHTML=response;
         } else {
