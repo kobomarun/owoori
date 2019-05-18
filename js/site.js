@@ -61,6 +61,10 @@ function getListings() {
   $.ajax({
       type: "get",
       url: "http://oshodibusinessconnect.com/Api/Site/getListings",
+      dataType: "html",
+      contentType: false,
+      cache: false,
+      processData: false,
       beforeSend : function() {$.mobile.loading('show')},
       complete   : function() {$.mobile.loading('hide')},
       success: function(response) {
@@ -78,3 +82,35 @@ function getListings() {
     });
   }
 }
+
+function search() {
+  var input_data = $('#search').val();
+  //console.log(input_data);
+
+    var post_data = {
+        'search': input_data,
+        };
+    $.ajax({
+        type: "post",
+        data: post_data,
+        url: "http://oshodibusinessconnect.com/Api/Site/homeSearch",
+        beforeSend : function() {$.mobile.loading('show')},
+        complete   : function() {$.mobile.loading('hide')},
+        success: function(response) {
+          //alert('success')
+          //if(response!=='') {
+            console.log('successs', response);
+
+            //document.getElementById("content").innerHTML=response;
+          //} else {
+          //  console.log("No Buisness Listings Found");
+
+          //}
+
+        },
+        error: function(response) {
+          console.log(response);
+        }
+      });
+
+ }

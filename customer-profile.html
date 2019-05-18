@@ -36,11 +36,12 @@
            </div>
            <div class="" style="margin:10px;">
             <div class="panel-heading">Profile Details</div>
+            <div class="row">
+              <div class="col-xs-12" align="center">
+                <img src="cinqueterre.jpg" class="img-rounded" alt="" id="dp" width="26%">
+              </div>
+            </div><br />
             <table class="table">
-              <tr>
-                <th>Id</th>
-                <td id="id"></td>
-              </tr>
               <tr>
                 <th>Full Name</th>
                 <td id="fname"></td>
@@ -51,6 +52,17 @@
               </tr>
               <tr>
                 <th>Business Description</th>
+                <div class="margin_bottom_20">
+                  <div id="dispic">
+                  <form name="prod" method="post" enctype="multipart/form-data" >
+                    <label >Select Image</label>
+                    <input type="file" class="" name="userfile" id="userfile" />
+                    <div onclick="changeMyDp()" id="uploadDp" class="button_alt">Change </div>
+
+                  </form>
+                </div>
+                     <div onclick="loadForm()" id="changedp" class="button_alt">Change Picture</div>
+                </div>
                 <td>
                   <div class="margin_bottom_20">
                      <textarea class="form-control" name="" id="description" autocomplete='description'></textarea><br />

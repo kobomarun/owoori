@@ -38,6 +38,7 @@ function validationcheck(){
       localStorage.setItem("phone",response['phone']);
       localStorage.setItem("id",response['id']);
       localStorage.setItem("name",response['name']);
+      localStorage.setItem("b_description",response['description']);
       localStorage.setItem("email",response['email']);
       localStorage.setItem("bname",response['bname']);
       localStorage.setItem("ctotal",response['ctotal']);
@@ -45,6 +46,7 @@ function validationcheck(){
       localStorage.setItem("dtotal",response['dtotal']);
       localStorage.setItem("isLogin",response['isLoggedIn']);
       localStorage.setItem("type",response['type']);
+      localStorage.setItem("img",response['img']);
 
       if(response['type'] == 1) {
       location.href='dashboard.html';
