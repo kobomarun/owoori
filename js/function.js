@@ -48,7 +48,7 @@ function submitComplain() {
   var title = document.getElementById("title").value;
   var msg = document.getElementById("message").value;
   var phone = localStorage.getItem('phone');
-  var location = document.getElementById("location").value;
+  //var location = document.getElementById("location").value;
   var random = Math.floor((Math.random() * 1000000) +1);
   if(title  == '') {
     alert("We can not accept empty complain");
@@ -60,9 +60,8 @@ function submitComplain() {
       'title': title,
       'msg': msg,
       'id': id,
-      'phone': phone,
-      'location': location
-    }
+      'phone': phone
+     }
     $.ajax({
       type: 'POST',
       crossDomain: true,
@@ -78,7 +77,7 @@ function submitComplain() {
       setInterval(function() {
         document.getElementById('status').innerHTML="Your complain has been submitted. Your complain ID is " + random;
        }, 2000);
-       location.href='sucess.html';
+       location.href='customer-success.html';
 
     } else {
       alert("Error submitting your complain");
@@ -93,18 +92,26 @@ function submitComplain() {
 }
 
 function UploadSupport() {
-  var img = document.getElementById('userfile');
-  var title = document.getElementById("title").value;
+  var teller = document.getElementById("teller").value;
+  var amount = document.getElementById("amount").value;
+  var bankName = document.getElementById("bankName").value;
+
+  var networkState =  navigator.onLine;
+
   var phone = localStorage.getItem('phone');
-  if(title  == '') {
-    alert("We can not accept empty complain");
-  } else if(img  == '') {
-    alert("Pls Upload Your Payment Slip");
+  if(teller  == '') {
+    alert("Input your teller number");
+  } else if(amount  == '') {
+    alert("Input amount paid");
+  }
+  else if (networkState == false){
+    navigator.notification.alert("Check your internet connection");
   }else {
     form_data = {
-      'title': title,
-      'img': img,
-      'phone': phone
+      'teller': teller,
+      'amount': amount,
+      'phone': phone,
+      'bankName':bankName
     }
     $.ajax({
       type: 'POST',
@@ -116,22 +123,36 @@ function UploadSupport() {
     dataType: 'json',
     success: function(response){
     console.log(response);
-    if(response !== 'error') {
-      document.getElementById('status').innerHTML="Submitting......";
-      setInterval(function() {
-        document.getElementById('status').innerHTML="Your payment evidence has been submitted.";
-       }, 2000);
-       location.href='sucess.html';
+    if(response.responseText == 'success') {
+      document.getElementById('status').innerHTML="Your payment evidence has been submitted. We will activate your payment when verified";
+      setTimeout(function() {
+        location.href='customer-dash.html';
 
-    } else if(response == 'bad') {
-      alert('Something is wrong with the image you uploaded')
-    } else {
-      alert("Error submitting your complain");
+      }, 40000);
+
+
+
+
+  } else {
+      alert("Error submitting your teller number. Please Try again");
     }
 
       },
       error: function(response) {
         console.log(response);
+        if(response.responseText == 'success') {
+          document.getElementById('status').style="display:block";
+          document.getElementById('status').innerHTML="Your payment evidence has been submitted. We will activate your payment when verified";
+          setTimeout(function() {
+            location.href='customer-dash.html';
+
+          }, 6000);
+
+
+      } else {
+          alert("Error submitting your teller number. Please Try again");
+        }
+
       }
     });
   }
@@ -151,4 +172,29 @@ for (i = 0; i < acc.length; i++) {
             panel.style.display = "block";
         }
     });
+}
+
+function getReceipt() {
+  var networkState =  navigator.onLine;
+  if (networkState == false){
+    navigator.notification.alert("Check your internet connection");
+  } else {
+  $.ajax({
+          type: "get",
+          url: "http://oshodibusinessconnect.com/Api/pipeline/getReceipt/"+localStorage.getItem('phone'),
+          beforeSend : function() {$.mobile.loading('show')},
+          complete   : function() {$.mobile.loading('hide')},
+          success: function(response) {
+            if(response!=='') {
+              document.getElementById("content").innerHTML=response;
+            } else {
+              alert("No Receipt Found");
+            }
+
+          },
+          error: function(response) {
+            console.log(response);
+          }
+        });
+      }
 }

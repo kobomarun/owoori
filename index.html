@@ -19,9 +19,22 @@
 	<!-- Login Page -->
 	<div data-role="page" class="mainbg" id="login">
 		<div role="main" class="ui-content">
+			<div class="contaier-fluid">
+				<div style="background:#fff; height: 50px">
+				<div class="col-xs-5">
+					<img src="assets/images/usaid.png" />
+				</div>
+				<div class="col-xs-3">
+					<img src="assets/images/oshodi.png" />
+				</div>
+				<div class="col-xs-4">
+					<img src="assets/images/clp.png" />
+				</div>
+				</div>
+			</div>
 		<div class="container">
-    <div class="centerimg">
-    	<img src="splash.jpg" height="70" class="img-circle img-thumbnail" width="80"/>
+    <div class="centerfrontlogo" align="center">
+    	<img src="assets/images/frontlogo.png"/>
     </div>
 		<div class="row" style="margin-top:60px;">
   		<div class="col-xs-12" id="form">
@@ -30,17 +43,31 @@
           <i class="entypo entypo-user"> </i>
 					<input  class="form-control" type="number" name="user" id="username" placeholder="Phone Number" value="" data-mini="true" data-role="none" >
       	</div>
-
           <div class="ctrl">
             <i class="entypo entypo-lock"> </i>
             <input  class="form-control" type="password" name="passw" id="password" placeholder="Password" value="" data-role="none" >
           </div>
           <div class="blue-submit" onTap="validationcheck()" name ="submit" id="submitButton"> Login to your Account</div>
+					<div style="text-align:center; color:#fff; margin-top: 15px;">
+						<i class="entypo entypo-user"></i>
+						<a onclick="location.href='business-registration.html'" style="color:#fff; font-size: 15px;">Register Here</a> <img src="or.png" width="70px" />
+						 <i class="entypo entypo-lock"></i><a onclick="iforgot()" style="color:#fff; font-size: 15px;">Forgot Password</a>
+					</div>
+					<div style="margin-top:60px;"></div>
+					<div id="forgot" style="display:none">
+						<h3 style="color:#fff">Forgot Password?</h3>
+						<div class="ctrl">
+		          <i class="entypo entypo-user"> </i>
+							<input  class="form-control" type="email" name="user" id="email" placeholder="Enter Your Email Address" value="" data-mini="true" data-role="none" >
+		      	</div>
+						<div class="blue-submit" onTap="forgotPassword()" name ="fp" id="fp"> Send Password</div>
+					</div>
 					<div style="margin-top:40px;"></div>
-					<div class="alert alert-info alert-dismissible" role="alert">
 
-					  <p>This App is made possible by the generous support of the American people through the United States Agency for International Development (USAID).
-							The contents are the responsibility of SACE and do not necessarily reflect the views of USAID or the United States Government.</p>
+					<div class="alert alert-info alert-dismissible" role="alert">
+					  <p>
+							This app is made possible with the support of the American people through the U.S. Agency for International Development.  Its contents do not necessarily reflect the views of the United States Government.
+</p>
 					</div>
 				 </form>
 				</div>
@@ -48,26 +75,6 @@
 	 </div>
 	</div><!-- /content -->
 
-	<div class="row">
-		<div class="footer">
-			<div class="col-xs-4">
-				<a style="color:#fff" onclick="location.href = 'home.html'">
-				<p class="ui-icon-home ui-btn-icon-top">Home</p>
-			</a>
-			</div>
-			<div class="col-xs-4">
-				<a style="color:#fff" onclick="location.href = 'blisting.html'">
-				<p class="ui-icon-grid ui-btn-icon-top">Listings</p>
-			</a>
-			</div>
-			<div class="col-xs-4">
-				<a style="color:#fff" onclick="location.href = 'index.html'">
-				 <p class="ui-icon-user ui-btn-icon-top" id="auth"> Login</p>
-			 </a>
-			</div>
-
-		</div>
-	</div>
 </div><!-- /page -->
 <script src="js/fastclick.js" type="text/javascript"></script>
 <script src="js/vend.js" type="text/javascript"></script>
@@ -76,6 +83,9 @@
   <script src="js/cash.js"></script>
 	<script>
 	localStorage.setItem('isLogin', 'false');
+	function iforgot() {
+		document.getElementById('forgot').style="display:block";
+	}
 	</script>
 </body>
 </html>

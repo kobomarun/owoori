@@ -3,7 +3,11 @@ function registerBusiness() {
 			alert("Please Enter Business Name");
 			document.register.bname.focus();
 
-		} else if (document.register.cname.value == "") {
+		}   else if (document.getElementById('businessCategory').options.length == 0) {
+          alert("Please Business Password");
+          document.register.pwd.focus();
+
+        } else if (document.register.cname.value == "") {
   			alert("Please Contact Persons name");
   			document.register.cname.focus();
       }
@@ -17,14 +21,20 @@ function registerBusiness() {
         alert("Please Business Password");
         document.register.pwd.focus();
 
-      } else {
+      }
+
+      else if (document.register.businessCategory.value == "") {
+          alert("Please Business Password");
+          document.register.pwd.focus();
+
+        } else {
   var btn = document.getElementById("submit");
   btn.innerHTML ="Saving.....";
   //btn.style="display:none"
   var bname = document.getElementById("bname").value;
   var address = document.getElementById("address").value;
   var phone = document.getElementById("phone").value;
-  var lg = document.getElementById("lg").value;
+  var description = document.getElementById("description").value;
   var cat = document.getElementById("businessCategory").value;
   var email = document.getElementById("email").value;
   var city = document.getElementById("city").value;
@@ -37,12 +47,13 @@ function registerBusiness() {
     'name': bname,
     'address': address,
     'city': city,
-    'lg':lg,
+    'lg':'Oshodi',
     'email': email,
     'category': cat,
     'phone': phone,
     'cname':cname,
-    'pwd':pwd
+    'pwd':pwd,
+    'description':description
     }
   var networkState =  navigator.onLine;
   if (networkState == false){
@@ -59,21 +70,26 @@ function registerBusiness() {
 
             if(response == "true") {
               console.log(response);
-              alert("You have Successfully added" + bname + " to Oshodi Business Connect");
+              alert("You have Successfully added " + bname + " to Oshodi Business Connect");
               document.getElementById("bname").value ='';
               cname="";
 
               lg="";
               city="";
-              location.href="home.html";
+              if(localStorage.getItem("isLogin") == "true") {
+                location.href="dashboard.html";
+              } else {
+                location.href="index.html";
+              }
             } else if(response == 'error2') {
               console.log(response);
               alert("Error while adding to database Please try again");
               btn.innerHTML = "Register ";
             }  else if(response == 'error'){
               console.log(response);
-              alert("Phone Number Already Exist");
+              alert("Phone Number or Email Taken. Try again");
               btn.innerHTML = "Register ";
+              location.href='business-registration.html';
             }
           }
         });
@@ -99,19 +115,22 @@ function addProducts() {
       } else {
   var btn = document.getElementById("submit");
   btn.innerHTML ="Saving.....";
+  var myForm = document.getElementById('prod');
+formData = new FormData(myForm);
   //btn.style="display:none"
   var name = document.getElementById("name").value;
   var description = document.getElementById("description").value;
   var price = document.getElementById("price").value;
-  var userfile = document.getElementById("userfile").value;
+  var file_name = document.getElementById("userfile").value;
   var phone = localStorage.getItem('phone');
 
 
   var form_data = {
     'name': name,
-    'userfile': userfile,
+    'file_name': file_name  ,
     'price': price,
     'phone':phone,
+    'description':description
     }
   var networkState =  navigator.onLine;
   if (networkState == false){
@@ -119,16 +138,20 @@ function addProducts() {
   } else {
 
   $.ajax({
-          type: "post",
+          type:"post",
           url: "http://oshodibusinessconnect.com/Api/site/addProduct",
-          data: form_data,
+          data: formData,
+          dataType: "html",
+        contentType: false,
+        cache: false,
+        processData: false,
           beforeSend : function() {$.mobile.loading('show')},
           complete   : function() {$.mobile.loading('hide')},
           success: function(response) {
 
             if(response == "successful") {
               console.log(response);
-              alert("You have Successfully added" + name + " Product to Oshodi Business Connect");
+              alert("You have Successfully added " + name + " Product to Oshodi Business Connect");
               location.href="home.html";
             } else if(response == 'pic-error') {
               console.log(response);
@@ -145,3 +168,5 @@ function addProducts() {
     }
 
 }
+
+document.getElementById('phone').value = localStorage.getItem('phone');

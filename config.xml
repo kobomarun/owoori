@@ -1,20 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.oshodibc" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.phonegap.oshodibc" version="1.1.8" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Oshodi-BC</name>
     <description>
       Oshodi Business Connect
     </description>
     <author email="support@clp.com" href="http://communitylifeproject.com">
-        SOFTVISION PROFESSIONALS
+        SOFTVISION Solutions
     </author>
-    <content src="home.html" />
+    <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="23" />
+    <preference name="android-targetSdkVersion" value="26" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
-    <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
-    <plugin name="cordova-plugin-console" source="npm" spec="~1.0.2" />
-    <plugin name="cordova-plugin-contacts" source="npm" spec="~2.0.1" />
+    <plugin name="cordova-plugin-console" sourceminSdkVersion="npm" spec="~1.0.2" />
     <plugin name="cordova-plugin-device" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-device-motion" source="npm" spec="~1.2.0" />
     <plugin name="cordova-plugin-device-orientation" source="npm" spec="~1.0.2" />
@@ -32,12 +31,12 @@
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <platform name="android">
-      <icon src="icon.jpg" gap:platform="android" gap:density="ldpi" />
-      <icon src="icon.jpg" gap:platform="android" gap:density="mdpi" />
-      <icon src="icon.jpg" gap:platform="android" gap:density="hdpi" />
-      <icon src="icon.jpg" gap:platform="android" gap:density="xhdpi" />
-      <icon src="icon.jpg" gap:platform="android" gap:density="xxhdpi" />
-      <icon src="icon.jpg" />
+      <icon src="splash.jpg" gap:platform="android" gap:density="ldpi" />
+      <icon src="splash.jpg" gap:platform="android" gap:density="mdpi" />
+      <icon src="splash.jpg" gap:platform="android" gap:density="hdpi" />
+      <icon src="splash.jpg" gap:platform="android" gap:density="xhdpi" />
+      <icon src="splash.jpg" gap:platform="android" gap:density="xxhdpi" />
+      <icon src="splash.jpg" />
       <gap:splash src="splash.jpg" gap:platform="android" gap:density="ldpi" />
       <gap:splash src="splash.jpg" gap:platform="android" gap:density="mdpi" />
       <gap:splash src="splash.jpg" gap:platform="android" gap:density="hdpi" />

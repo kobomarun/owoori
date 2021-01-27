@@ -32,6 +32,8 @@ function checkBusisness(){
       //set user details in localStorage
       localStorage.setItem("bphone",response['phone']);
       localStorage.setItem("bname",response['bname']);
+      localStorage.setItem("baddress",response['address']);
+      localStorage.setItem("ccity",response['city']);
 
       location.href='tariff-payment2.html';
     } else {
@@ -61,27 +63,51 @@ newV = e.options[e.selectedIndex].value
   localStorage.setItem('tariffAmount', tariffAmount);
 console.log(splitValue[1]);
 }
+function onChange2(e) {
+	var value = document.getElementById("tariff2").value
+
+newV = e.options[e.selectedIndex].value
+  var splitValue = newV.split(":");
+  var tariffAmount = document.getElementById("amount2").value=splitValue[0];
+  var tariffName = document.getElementById("tariffName2").value=splitValue[1];
+  localStorage.setItem('tariffName2', tariffName);
+  localStorage.setItem('tariffAmount2', tariffAmount);
+console.log(splitValue[1]);
+}
+function onChange3(e) {
+	var value = document.getElementById("tariff3").value
+
+newV = e.options[e.selectedIndex].value
+  var splitValue = newV.split(":");
+  var tariffAmount = document.getElementById("amount3").value=splitValue[0];
+  var tariffName = document.getElementById("tariffName3").value=splitValue[1];
+  localStorage.setItem('tariffName3', tariffName);
+  localStorage.setItem('tariffAmount3', tariffAmount);
+console.log(splitValue[1]);
+}
 
 function Payment() {
-	var confirmPayment = confirm("Are you sure about the payment");
+	var confirmPayment = confirm("Are you sure?");
 	if(confirmPayment) {
-    tname = localStorage.getItem('tariffName');
-    tamount = document.getElementById('amount').value;
+    tname = localStorage.getItem('tariffName') + ","+localStorage.getItem('tariffName2')+","+localStorage.getItem('tariffName3');
+    tprice = localStorage.getItem('tariffAmount') + ","+localStorage.getItem('tariffAmount2')+","+localStorage.getItem('tariffAmount3');
     bname = localStorage.getItem('bname');
+    tamount = localStorage.getItem('genTotal');
     bphone = localStorage.getItem('bphone');
     officerid = localStorage.getItem('id');
     lg = localStorage.getItem('lg');
-    pmethod = document.getElementById('pmethod').value;
-    ptype = document.getElementById('ptype').value;
+    //pmethod = document.getElementById('pmethod').value;
+    //ptype = document.getElementById('ptype').value;
 
     form_data = {
       'tname': tname,
       'tamount': tamount,
+      'tprice': tprice,
       'bname': bname,
       'bphone': bphone,
-      'p_method':pmethod,
+      'num':localStorage.getItem('uuid'),
       'officer_id':officerid,
-      'ptype':ptype,
+      //'ptype':'ptype',
       'lg':lg
     }
 
@@ -114,6 +140,7 @@ function Payment() {
 	}
 }
 
+
 function getAllTariff() {
   var networkState =  navigator.onLine;
   if (networkState == false){
@@ -127,6 +154,9 @@ function getAllTariff() {
           success: function(response) {
             if(response!=='') {
               document.getElementById("tariff").innerHTML=response;
+              document.getElementById("tariff2").innerHTML=response;
+              document.getElementById("tariff3").innerHTML=response;
+
             } else {
               alert("No Tariff Found");
             }
@@ -138,3 +168,28 @@ function getAllTariff() {
         });
       }
 }
+
+// function getAllTariff() {
+//   var networkState =  navigator.onLine;
+//   if (networkState == false){
+//     navigator.notification.alert("Check your internet connection");
+//   } else {
+//   $.ajax({
+//           type: "post",
+//           url: "http://oshodibusinessconnect.com/Api/pipeline/getAllTariff",
+//           beforeSend : function() {$.mobile.loading('show')},
+//           complete   : function() {$.mobile.loading('hide')},
+//           success: function(response) {
+//             if(response!=='') {
+//               document.getElementById("tariff").innerHTML=response;
+//             } else {
+//               alert("No Tariff Found");
+//             }
+//
+//           },
+//           error: function(response) {
+//             console.log(response);
+//           }
+//         });
+//       }
+// }

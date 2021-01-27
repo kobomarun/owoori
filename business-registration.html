@@ -40,35 +40,12 @@
           }
 
 
-          function getLgs() {
-            var networkState =  navigator.onLine;
-            if (networkState == false){
-              navigator.notification.alert("Check your internet connection");
-            } else {
-            $.ajax({
-                    type: "get",
-                    url: "http://communitylifeproject.ngo/lg/Api/pipeline/getLgs",
-                    beforeSend : function() {$.mobile.loading('show')},
-                    complete   : function() {$.mobile.loading('hide')},
-                    success: function(response) {
-                      if(response!=='') {
-                        document.getElementById("lg").innerHTML=response;
-                      } else {
-                        alert("No Business Type Found");
-                      }
 
-                    },
-                    error: function(response) {
-                      console.log(response);
-                    }
-                  });
-                }
-          }
 
 
           </script>
    </head>
-   <body onload="getAllCategory(); getLgs()">
+   <body onload="getAllCategory();">
      <div data-role="page" id="mtn">
         <div data-role="header" onclick="history.back()">
            <div class="logo">
@@ -104,7 +81,13 @@
                             data-validation="string" data-validation-allowing="string">
                       </div>
                       <div class="clear_float"></div>
+                      <div class="margin_bottom_20">
+                         <label >Business Description</label>
+                         <textarea id="description" required></textarea>
 
+                      </div>
+                       <div class="clear_float"></div>
+                       <div class="clear_float"></div>
                        <div class="clear_float"></div>
                     <div class="margin_bottom_20">
                        <label >Business Address</label>
@@ -134,19 +117,19 @@
                      <input type="text" class="form-control" name="" id="pwd" autocomplete='tel-national'
                         data-validation="string">
                   </div>
-                    <div class="clear_float"></div>
+                    <!-- <div class="clear_float"></div>
                     <div class="margin_bottom_20">
                       <label >Select Local Government</label>
                       <select class="select-choice-1" id="lg">
                         <option >Select</option>
                       </select>
-                    </div>
+                    </div> -->
                       <div class="clear_float"></div>
                       <div class="margin_bottom_20">
                         <div class="clear_float"></div>
                          <label>Select Business Category</label>
-                          <select name="select-choice-1" id="businessCategory">
-                           <option id="content">Select</option>
+                          <select name="select-choice-1" id="businessCategory" required>
+                           <option id="content" value="">Select</option>
 
                          </select>
                       </div>
@@ -155,7 +138,7 @@
 
                           <div class="clear_float"></div>
                     <div class="clear_float"></div>
-                    <div  id="submit" onclick="registerBusiness()" class="button_alt">Save</div>
+                    <div  id="submit" onclick="registerBusiness()" class="button_alt">Register</div>
                  </div>
            </form>
            </div>

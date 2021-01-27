@@ -14,7 +14,7 @@
       <script src="js/neon-custom.js"></script>
       <script src="phonegap.js"></script>
    </head>
-   <body onload="getAllBusiness()">
+   <body onload="getInvoice()">
      <div data-role="page"  id="mtn">
         <div data-role="header" onclick="history.back()">
            <div class="logo">
@@ -29,32 +29,59 @@
            <div class="text-plain-white inner-pad">
               <div class="pull-left">
                  <div class="dash-icon">
-                    <i  class="entypo-wallet"> </i>
+                    <i  class="entypo-world"> </i>
                  </div>
-                 <div class="pad-text">Business Listing</div>
+                 <div class="pad-text" id="inv">Invoice</div>
               </div>
            </div>
-           <div class=""  style="margin:5px;" >
-            <div class="panel-heading"></div>
-            <table class="table-responsive">
-              <thead id="head">
-              <tr>
-                <th>Business Name</th>
-                <th>Contact Name</th>
-                <th>Phone</th>
-              </tr>
-            </thead>
-              <tbody id="content">
-              </tbody>
-
-            </table>
+          <table class="table">
+            <tr>
+              <th>Tariff</th>
+              <th>Price</th>
+            </tr>
+            <tbody id="content">
+            </tbody>
+          </table>
+          <div class="container">
+          <h3 id="total"></h3>
+        </div>
           </div>
+          
            </div>
         </div>
         <!-- /content -->
      </div>
      <!-- /page END OF MTN VENDING -->
      <script src="js/fastclick.js" type="text/javascript"></script>
-     <script src="js/listing.js" type="text/javascript"></script>
+        <script src="js/function.js" type="text/javascript"></script>
+
+     <script>
+     function getInvoice() {
+       var networkState =  navigator.onLine;
+       if (networkState == false){
+         navigator.notification.alert("Check your internet connection");
+       } else {
+       $.ajax({
+               type: "get",
+               url: "http://oshodibusinessconnect.com/Api/pipeline/getInvoice/"+localStorage.getItem('phone'),
+               beforeSend : function() {$.mobile.loading('show')},
+               complete   : function() {$.mobile.loading('hide')},
+               success: function(response) {
+                 console.log('res',response);
+                 if(response!=='') {
+                   document.getElementById("content").innerHTML=response;
+                 } else {
+                   alert("No Invoice Found");
+                 }
+
+               },
+               error: function(response) {
+                 console.log(response);
+               }
+             });
+           }
+     }
+
+     </script>
    </body>
 </html>

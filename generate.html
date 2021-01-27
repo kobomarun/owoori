@@ -14,9 +14,9 @@
       <script src="js/neon-custom.js"></script>
       <script src="phonegap.js"></script>
    </head>
-   <body onload="getAllBusiness()">
+   <body >
      <div data-role="page"  id="mtn">
-        <div data-role="header" onclick="history.back()">
+        <div data-role="header" onclick="history.back()'">
            <div class="logo">
             <a href="dashboard.html">
               <i  class="entypo-left-open-big"> </i>
@@ -31,30 +31,37 @@
                  <div class="dash-icon">
                     <i  class="entypo-wallet"> </i>
                  </div>
-                 <div class="pad-text">Business Listing</div>
+                 <div class="pad-text">Generate Bill</div>
               </div>
            </div>
-           <div class=""  style="margin:5px;" >
-            <div class="panel-heading"></div>
-            <table class="table-responsive">
-              <thead id="head">
-              <tr>
-                <th>Business Name</th>
-                <th>Contact Name</th>
-                <th>Phone</th>
-              </tr>
-            </thead>
-              <tbody id="content">
-              </tbody>
+           <form name="verify">
+             <div class="container">
+               <ul class="breadcrumb">
+                  <li class="active"><a href="">Step 1</a></li>
+                  <li>Step 2</li>
 
-            </table>
-          </div>
+                </ul>
+             </div>
+              <div class="pad">
+                 <div class="regular margin_bottom_20">
+                     <div class="clear_float"></div><br />
+                   <div class="margin_bottom_20">
+                      <label >Enter Phone Number</label>
+                      <input type="number" class="form-control" name="name" id="phone" autocomplete='fname'
+                         data-validation="string" data-validation-allowing="string">
+                   </div>
+
+                    <div class="clear_float"></div>
+                    <div class="clear_float"></div><br /><br />
+                    <div id="submitButton" onclick="checkBusisness()" class="button_alt">Continue</div>
+                 </div>
+           </form>
            </div>
         </div>
         <!-- /content -->
      </div>
      <!-- /page END OF MTN VENDING -->
      <script src="js/fastclick.js" type="text/javascript"></script>
-     <script src="js/listing.js" type="text/javascript"></script>
+    <script src="js/tariff-payment.js"></script>
    </body>
 </html>

@@ -76,3 +76,34 @@ function getBusinessDetails(e) {
         });
       }
 }
+
+
+function getMyBusinessDetails() {
+  var phone = localStorage.getItem('phone');
+  var networkState =  navigator.onLine;
+  if (networkState == false){
+    navigator.notification.alert("Check your internet connection");
+  } else {
+  $.ajax({
+          type: "post",
+          url: "http://oshodibusinessconnect.com/Api/pipeline/getMyBusinessDetails",
+          data: {
+            phone: phone
+          },
+          beforeSend : function() {$.mobile.loading('show')},
+          complete   : function() {$.mobile.loading('hide')},
+          success: function(response) {
+            if(response!=='') {
+              document.getElementById("content").style='display:none';
+              document.getElementById("head").innerHTML=response;
+            } else {
+              alert("Business details not found");
+            }
+
+          },
+          error: function(response) {
+            console.log(response);
+          }
+        });
+      }
+}

@@ -14,11 +14,11 @@
       <script src="js/neon-custom.js"></script>
       <script src="phonegap.js"></script>
    </head>
-   <body onload="getProducts()">
+   <body onload="getMyBusinessDetails()">
      <div data-role="page"  id="mtn" class="">
-        <div data-role="header" onclick="history.back()">
+        <div data-role="header">
            <div class="logo">
-            <a href="dashboard.html">
+            <a onclick="location.href = 'blisting.html'">
               <img src="splash.jpg" height="40" class="img-circle img-thumbnail" width="40"/>
             </a>
             <div class="pull-right" style="color:#fff">
@@ -28,45 +28,31 @@
            </div>
         <!-- /header -->
         <div role="main" class="ui-content">
-           <div class="">
-             <img src="assets/images/oshodi.jpg" width="100%" />
-             <h3 class="discover">Discover Local Business in Oshodi</h3>
-           </div>
-           <div class="osearch">
-             <div class="form-group">
-               <div class="col-xs-8">
-               <input type="text" class="form-control" placeholder="Search" id="search">
-             </div>
-             <div class="col-xs-4">
-               <div class="btn btn-primary btn-search" onClick="search()">Search</div>
-             </div>
-             </div>
+
              <div class="text-plain-white innerheader">
                 <div class="pull-left">
                    <div class="dash-icon">
                       <i  class="entypo-world"> </i>
                    </div>
-                   <div class="pad-text">Featured Products</div>
+                   <div class="pad-text"> My Store</div>
                 </div>
              </div>
            </div>
 
           <div class="row">
-            <div class="col-xs-12" id="content" style="margin-bottom:250px;">
+            <div class="col-xs-12" id="content">
               <div class="col-xs-6">
-                <img src="assets/images/oshodi.jpg" width="100%" />
                 <p> Loading....</p>
                 <p>loading....</p>
               </div>
-              <div class="col-xs-6">
-                <img src="assets/images/oshodi.jpg" width="100%" class="thumbnail"/>
-                <p> Loading....</p>
-                <p>loading....</p>
-              </div>
-            </div>
-            <div style="height:360px;"></div>
 
+            </div>
           </div>
+          <table class="table" id="head">
+
+            </tbody>
+
+          </table>
           </div>
         </div>
         <div class="row">
@@ -93,5 +79,7 @@
      <script src="js/fastclick.js" type="text/javascript"></script>
         <script src="js/function.js" type="text/javascript"></script>
         <script src="js/site.js" type="text/javascript"></script>
+        <script src="js/listing.js" type="text/javascript"></script>
+
    </body>
 </html>
